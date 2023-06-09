@@ -25,7 +25,7 @@ const auth0 = useAuth0()
 const { isAuthenticated, loginWithRedirect, logout } = auth0
 
 const login = () => loginWithRedirect()
-const logOut = () => logout({ logoutParams: { returnTo: window.location.origin } })
+const logOut = () => logout(/* { logoutParams: { returnTo: window.location.origin } } */)
 </script>
 
 <style scoped>

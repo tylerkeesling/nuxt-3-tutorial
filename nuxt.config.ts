@@ -5,7 +5,11 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'],
   nitro: {
     rollupConfig: {
-      plugins: [nodePolyfills(['crypto'])],
+      plugins: [
+        nodePolyfills({
+          include: 'crypto',
+        }),
+      ],
     },
   },
   app: {

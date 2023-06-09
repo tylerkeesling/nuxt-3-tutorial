@@ -5,6 +5,9 @@ export default defineNuxtConfig({
     unenv: {
       external: ['crypto'],
     },
+    alias: {
+      crypto: 'node:crypto',
+    },
   },
   app: {
     head: {

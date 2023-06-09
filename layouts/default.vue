@@ -7,7 +7,6 @@
           <li><NuxtLink v-if="!isAuthenticated" @click="loginWithRedirect">Login</NuxtLink></li>
           <li><NuxtLink v-if="isAuthenticated" @click="logOut">Logout</NuxtLink></li>
           <li><NuxtLink to="/">Home</NuxtLink></li>
-          <li><NuxtLink to="/">Home</NuxtLink></li>
           <li><NuxtLink to="/about">About</NuxtLink></li>
           <li><NuxtLink to="/products" class="btn">Merch</NuxtLink></li>
         </ul>
@@ -26,7 +25,7 @@ const auth0 = useAuth0()
 const { isAuthenticated, loginWithRedirect, logout } = auth0
 
 const login = () => loginWithRedirect()
-const logOut = () => logout()
+const logOut = () => logout({ logoutParams: { returnTo: window.location.origin } })
 </script>
 
 <style scoped>

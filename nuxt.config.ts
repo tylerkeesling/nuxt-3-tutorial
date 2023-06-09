@@ -4,6 +4,7 @@ import nodePolyfills from 'rollup-plugin-node-polyfills'
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'],
   nitro: {
+    preset: 'cloudflare-pages',
     rollupConfig: {
       plugins: [
         nodePolyfills({

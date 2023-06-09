@@ -1,6 +1,11 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'],
+  nitro: {
+    unenv: {
+      external: ['crypto'],
+    },
+  },
   app: {
     head: {
       title: 'Nuxt Dojo',

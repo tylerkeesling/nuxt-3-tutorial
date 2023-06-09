@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# nuxt-3-tutorial
-All course files for the Nuxt 3 course on Net Ninja Pro and the Net Ninja YouTube channel.
-=======
 # Nuxt 3 Minimal Starter
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
@@ -44,4 +40,4 @@ npm run preview
 ```
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
->>>>>>> lesson-13
+

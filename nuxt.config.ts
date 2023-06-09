@@ -13,5 +13,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     currencyKey: process.env.CURRENCY_API_KEY,
+    authConfig: {
+      domain: 'tpk-demo-env.cic-demo-platform.auth0app.com',
+      clientId: 'qcTlZUQ0enh9UrJmajjc6cW5yQLE4rnU',
+    }
   },
 })

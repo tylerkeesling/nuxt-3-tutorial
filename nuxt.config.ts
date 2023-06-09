@@ -1,5 +1,5 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
-import nodePolyfills from 'rollup-plugin-polyfill-node'
+import nodePolyfills from 'rollup-plugin-node-polyfills'
 
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'],
@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     rollupConfig: {
       plugins: [
         nodePolyfills({
-          include: 'crypto',
+          crypto: true,
         }),
       ],
     },

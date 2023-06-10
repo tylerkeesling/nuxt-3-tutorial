@@ -41,7 +41,10 @@
     }
   };
 
-  const logOut = () => auth0?.logout({ logoutParams: { returnTo: window.location.origin } });
+  const logOut = () => {
+    navigateTo('/');
+    auth0.logout();
+  };
 </script>
 
 <style scoped>

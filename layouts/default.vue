@@ -32,7 +32,7 @@
 
   const login = () => {
     auth0?.checkSession();
-    if (!auth0?.isAuthenticated.value) {
+    if (!auth0?.isAuthenticated) {
       auth0?.loginWithRedirect({
         appState: {
           target: useRoute().path,
@@ -43,7 +43,7 @@
 
   const logOut = () => {
     navigateTo('/');
-    auth0.logout();
+    auth0.logout({ logoutParams: { returnTo: window.location.origin } });
   };
 </script>
 

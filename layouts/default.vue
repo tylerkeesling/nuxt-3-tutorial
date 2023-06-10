@@ -6,7 +6,6 @@
         <ul class="flex gap-4">
           <li><NuxtLink to="/">Home</NuxtLink></li>
           <li><NuxtLink to="/protected">Protected Route</NuxtLink></li>
-          <li><NuxtLink to="/authorized">Authorized Route</NuxtLink></li>
           <li><NuxtLink to="/products">Merch</NuxtLink></li>
           <li>
             <NuxtLink v-if="!isAuthenticated" @click="login" class="btn"> Login </NuxtLink>

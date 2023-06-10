@@ -32,7 +32,7 @@
 
   const login = () => {
     auth0?.checkSession();
-    if (!auth0?.isAuthenticated) {
+    if (!auth0?.isAuthenticated.value) {
       auth0?.loginWithRedirect({
         appState: {
           target: useRoute().path,

@@ -1,11 +1,11 @@
 <template>
   <div>
     <h2>Protected Route</h2>
-    <p>isAuthenticated? {{ this.$auth0.isAuthenticated.value }}</p>
+    <p>isAuthenticated? {{ isAuthenticated }}</p>
     <div>
       <div>
-        <p>this.$auth0.user</p>
-        <pre>{{ this.$auth0.user }}</pre>
+        <p>User</p>
+        <pre>{{ user }}</pre>
       </div>
       <div>
         <p>User Roles</p>
@@ -31,11 +31,11 @@
 
 <script setup>
   import { useAuth0 } from '@auth0/auth0-vue';
+
+  const { user, getAccessTokenSilently, isAuthenticated } = useAuth0();
+  const accessToken = await getAccessTokenSilently();
+
   definePageMeta({
     middleware: 'auth',
   });
-
-  const { user, getAccessTokenSilently } = useAuth0();
-
-  const accessToken = await getAccessTokenSilently();
 </script>

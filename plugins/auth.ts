@@ -1,4 +1,4 @@
-import { createAuth0, authGuard } from '@auth0/auth0-vue';
+import { createAuth0 } from '@auth0/auth0-vue';
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { domain, clientId, audience, redirectUri: redirect_uri } = useAppConfig().auth;

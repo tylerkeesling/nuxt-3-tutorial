@@ -8,9 +8,9 @@
           <li><NuxtLink to="/about">Protected</NuxtLink></li>
           <li><NuxtLink to="/products">Merch</NuxtLink></li>
           <li>
-            <NuxtLink v-if="!isAuthenticated" @click="loginWithRedirect" class="btn"
-              >Login</NuxtLink
-            >
+            <NuxtLink v-if="!isAuthenticated" @click="loginWithRedirect" class="btn">
+              Login
+            </NuxtLink>
             <NuxtLink v-else @click="logOut" class="btn">Logout</NuxtLink>
           </li>
         </ul>

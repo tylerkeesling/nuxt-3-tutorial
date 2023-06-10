@@ -1,7 +1,12 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
-  ssr: false,
+  // ssr: false,
+  routeRules: {
+    '/': { swr: true },
+    '/protected': { ssr: false },
+    '/products': { ssr: true },
+  },
   app: {
     head: {
       title: 'Nuxt Auth0',

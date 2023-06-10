@@ -18,10 +18,10 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
   nuxtApp.vueApp.use(auth0);
 
-  addRouteMiddleware('auth', authGuard);
+  // addRouteMiddleware('auth', authGuard);
 
   // Basically this under the hood
-  /*   addRouteMiddleware('auth', () => {
+  addRouteMiddleware('auth', () => {
     if (process.client) {
       auth0.checkSession();
       if (!auth0.isAuthenticated.value) {
@@ -33,5 +33,5 @@ export default defineNuxtPlugin((nuxtApp) => {
         });
       }
     }
-  }); */
+  });
 });

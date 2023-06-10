@@ -1,7 +1,7 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
-  // ssr: true,
+  ssr: false,
   app: {
     head: {
       title: 'Nuxt Auth0',
@@ -11,11 +11,12 @@ export default defineNuxtConfig({
       ],
     },
   },
-  runtimeConfig: {
+  appConfig: {
     currencyKey: process.env.CURRENCY_API_KEY,
-    authConfig: {
-      domain: 'tpk-demo-env.cic-demo-platform.auth0app.com',
-      clientId: 'qcTlZUQ0enh9UrJmajjc6cW5yQLE4rnU',
-    }
+    auth: {
+      domain: process.env.AUTH0_DOMAIN,
+      clientId: process.env.AUTH0_CLIENT_ID,
+      redirectUri: process.env.AUTH0_REDIRECT_URI,
+    },
   },
 })

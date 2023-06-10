@@ -1,5 +1,4 @@
 export default defineEventHandler(async (event) => {
-
   // handle query params
   // const { name } = useQuery(event)
 
@@ -11,9 +10,9 @@ export default defineEventHandler(async (event) => {
   // }
 
   // api call with private key
-  const { currencyKey } = useRuntimeConfig()
+  const { currencyKey } = useRuntimeConfig();
 
-  const { data } = await $fetch(`https://api.currencyapi.com/v3/latest?apikey=${currencyKey}`)
+  const { data } = await $fetch(`https://api.currencyapi.com/v3/latest?apikey=${currencyKey}`);
 
-  return data
-})
+  return data;
+});

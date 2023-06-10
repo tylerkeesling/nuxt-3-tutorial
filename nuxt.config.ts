@@ -20,4 +20,4 @@ export default defineNuxtConfig({
       redirectUri: process.env.AUTH0_REDIRECT_URI,
     },
   },
-})
+});

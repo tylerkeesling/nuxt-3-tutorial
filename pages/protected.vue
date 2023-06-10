@@ -1,7 +1,11 @@
 <template>
   <div>
-    <h2>Protected</h2>
-    <p>You are currently logged in? {{ this.$auth0.isAuthenticated.value }}</p>
+    <h2>Protected Route</h2>
+    <p>isAuthenticated? {{ this.$auth0.isAuthenticated.value }}</p>
+    <div>
+      <p>this.$auth0.user</p>
+      <pre>{{ this.$auth0.user }}</pre>
+    </div>
     <p>api response:</p>
     <div>{{ data }}</div>
   </div>

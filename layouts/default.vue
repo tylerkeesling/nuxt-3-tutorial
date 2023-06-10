@@ -23,7 +23,8 @@
 <script setup>
   import { useAuth0 } from '@auth0/auth0-vue';
 
-  const auth0 = process.client ? useAuth0() : undefined;
+  // const auth0 = process.client ? useAuth0() : undefined;
+  const auth0 = useAuth0();
 
   const isAuthenticated = computed(() => {
     return auth0?.isAuthenticated.value;

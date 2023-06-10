@@ -3,11 +3,19 @@
     <h2>Protected Route</h2>
     <p>isAuthenticated? {{ this.$auth0.isAuthenticated.value }}</p>
     <div>
-      <p>this.$auth0.user</p>
-      <pre>{{ this.$auth0.user }}</pre>
+      <div>
+        <p>this.$auth0.user</p>
+        <pre>{{ this.$auth0.user }}</pre>
+      </div>
+      <div>
+        <p>User Roles</p>
+        <pre>{{ user['https://kick.com/roles'] }}</pre>
+      </div>
+      <div>
+        <p>Access Token</p>
+        <pre>{{ accessToken }}</pre>
+      </div>
     </div>
-    <p>api response:</p>
-    <div>{{ data }}</div>
   </div>
 </template>
 
@@ -22,9 +30,12 @@
 </style>
 
 <script setup>
+  import { useAuth0 } from '@auth0/auth0-vue';
   definePageMeta({
     middleware: 'auth',
   });
 
-  const { data } = await useFetch('/api/currency/GBP');
+  const { user, getAccessTokenSilently } = useAuth0();
+
+  const accessToken = await getAccessTokenSilently();
 </script>

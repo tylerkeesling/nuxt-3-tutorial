@@ -1,4 +1,4 @@
-import { createAuth0 } from '@auth0/auth0-vue';
+import { createAuth0, authGuard } from '@auth0/auth0-vue';
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { domain, clientId, audience, redirectUri: redirect_uri } = useAppConfig().auth;
@@ -18,7 +18,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(auth0);
   }
 
-  addRouteMiddleware('auth', () => {
+  addRouteMiddleware('auth', authGuard);
+
+  // Basically this under the hood
+  /*   addRouteMiddleware('auth', () => {
     if (process.client) {
       auth0.checkSession();
       if (!auth0.isAuthenticated.value) {
@@ -30,5 +33,5 @@ export default defineNuxtPlugin((nuxtApp) => {
         });
       }
     }
-  });
+  }); */
 });

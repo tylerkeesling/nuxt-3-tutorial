@@ -5,12 +5,10 @@
         <NuxtLink to="/" class="font-bold">Kick &#10084;&#65039; Okta</NuxtLink>
         <ul class="flex gap-4">
           <li><NuxtLink to="/">Home</NuxtLink></li>
-          <li><NuxtLink to="/about">Protected</NuxtLink></li>
+          <li><NuxtLink to="/protected">Protected</NuxtLink></li>
           <li><NuxtLink to="/products">Merch</NuxtLink></li>
           <li>
-            <NuxtLink v-if="!isAuthenticated" @click="loginWithRedirect" class="btn">
-              Login
-            </NuxtLink>
+            <NuxtLink v-if="!isAuthenticated" @click="login" class="btn"> Login </NuxtLink>
             <NuxtLink v-else @click="logOut" class="btn">Logout</NuxtLink>
           </li>
         </ul>
@@ -25,9 +23,24 @@
 <script setup>
   import { useAuth0 } from '@auth0/auth0-vue';
 
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const auth0 = process.client ? useAuth0() : undefined;
 
-  const logOut = () => logout({ logoutParams: { returnTo: window.location.origin } });
+  const isAuthenticated = computed(() => {
+    return auth0?.isAuthenticated.value;
+  });
+
+  const login = () => {
+    auth0?.checkSession();
+    if (!auth0?.isAuthenticated) {
+      auth0?.loginWithRedirect({
+        appState: {
+          target: useRoute().path,
+        },
+      });
+    }
+  };
+
+  const logOut = () => auth0?.logout({ logoutParams: { returnTo: window.location.origin } });
 </script>
 
 <style scoped>

@@ -10,6 +10,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       audience,
       redirect_uri,
     },
+    cacheLocation: 'localstorage',
+    useRefreshTokens: true,
   });
 
   // Only instantiate on client
@@ -19,7 +21,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   addRouteMiddleware('auth', authGuard);
-
   // Basically this under the hood
   // addRouteMiddleware('auth', () => {
   //   if (process.client) {

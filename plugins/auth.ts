@@ -2,7 +2,9 @@ import { createAuth0, authGuard } from '@auth0/auth0-vue';
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { domain, clientId, audience, redirectUri: redirect_uri } = useAppConfig().auth;
+
   // https://auth0.github.io/auth0-vue/index.html
+  // https://auth0.github.io/auth0-spa-js/interfaces/Auth0ClientOptions.html
   const auth0 = createAuth0({
     domain,
     clientId,

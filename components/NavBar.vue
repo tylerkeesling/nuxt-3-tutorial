@@ -4,7 +4,6 @@
       <a to="/" class="font-bold">Kick &#10084;&#65039; Okta</a>
       <div class="flex gap-4">
         <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/protected">Protected Route</NuxtLink>
         <NuxtLink to="/products">Products</NuxtLink>
       </div>
       <div class="flex gap-4">

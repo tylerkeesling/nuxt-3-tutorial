@@ -9,8 +9,9 @@
 </template>
 
 <script setup>
+  import { ref } from 'vue';
   //  fetch the products
-  const { data: products } = await useFetch('https://fakestoreapi.com/products');
+  const { data: products } = await useFetch('/api/product');
 
   // definePageMeta({
   //   layout: 'products',

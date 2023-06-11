@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   routeRules: {
     '/': { ssr: true },
-    '/protected': { ssr: false },
+    '/profile': { ssr: false },
     '/products': { ssr: true },
   },
   app: {

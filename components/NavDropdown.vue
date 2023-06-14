@@ -12,8 +12,8 @@
         type="button"
       >
         <span class="sr-only">Open user menu</span>
-        <img class="w-8 h-8 mr-2 rounded-full" :src="session.user.image" alt="user photo" />
-        {{ session.user.name }}
+        <img class="w-8 h-8 mr-2 rounded-full" :src="session?.user.image" alt="user photo" />
+        {{ session?.user.name }}
         <svg
           class="w-4 h-4 mx-1.5"
           aria-hidden="true"
@@ -35,7 +35,7 @@
         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
       >
         <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-          <div class="font-medium truncate">{{ session.user.email }}</div>
+          <div class="font-medium truncate">{{ session?.user.email }}</div>
         </div>
         <ul
           class="py-2 text-sm text-gray-700 dark:text-gray-200"

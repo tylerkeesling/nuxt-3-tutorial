@@ -3,11 +3,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   telemetry: false,
   devtools: { enabled: true },
-  // routeRules: {
-  //   '/': { ssr: true },
-  //   '/profile': { ssr: false },
-  //   '/products': { ssr: true },
-  // },
+
   app: {
     head: {
       title: 'Nuxt Auth0',
@@ -15,6 +11,13 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
       ],
     },
+  },
+  runtimeConfig: {
+    auth: {
+      domain: process.env.AUTH0_DOMAIN,
+      clientId: process.env.AUTH0_CLIENT_ID,
+      audience: process.env.AUTH0_AUDIENCE,
+      redirectUri: process.env.AUTH0_REDIRECT_URI,
   },
   appConfig: {
     auth: {

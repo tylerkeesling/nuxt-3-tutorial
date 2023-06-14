@@ -17,10 +17,10 @@ export default defineNuxtPlugin((nuxtApp) => {
   });
 
   // Only instantiate on client
-  if (process.client) {
+  // if (process.client) {
     // Adding @auth0/auth0-vue as a Nuxt3 plugin
     nuxtApp.vueApp.use(auth0);
-  }
+  // }
 
   addRouteMiddleware('auth', authGuard);
   // Basically this under the hood

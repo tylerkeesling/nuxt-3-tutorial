@@ -5,8 +5,8 @@
         <img :src="session?.user?.image" alt="User's profile picture" class="rounded-full w-36 h-36" />
       </div>
       <div class="relative md:flex-grow md:flex-1 text-center md:text-left">
-        <h2>{{ session.user?.name }}</h2>
-        <p class="text-xl font-light text-gray-700">{{ session.user?.email }}</p>
+        <h2>{{ session?.user?.name }}</h2>
+        <p class="text-xl font-light text-gray-700">{{ session?.user?.email }}</p>
       </div>
     </div>
 
@@ -28,7 +28,7 @@ p {
 
 <script setup>
 const { status, session } = useAuth();
-// definePageMeta({
-//   middleware: 'auth',
-// });
+definePageMeta({
+  middleware: 'auth',
+});
 </script>

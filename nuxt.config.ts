@@ -1,6 +1,5 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
-import { createResolver } from '@nuxt/kit';
-const { resolve } = createResolver(import.meta.url);
+import { resolve } from 'node:path';
 
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@hebilicious/authjs-nuxt'],
@@ -15,9 +14,9 @@ export default defineNuxtConfig({
     },
   },
   alias: {
-    jose: resolve(__dirname, './node_modules/jose/dist/browser/index.js'),
-    '@panva/hkdf': resolve(__dirname, './node_modules/@panva/hkdf/dist/web/index.js'),
-    cookie: resolve(__dirname, './node_modules/cookie-es'),
+    cookie: resolve(__dirname, 'node_modules/cookie'),
+    jose: resolve(__dirname, 'node_modules/jose/dist/browser/index.js'),
+    '@panva/hkdf': resolve(__dirname, 'node_modules/@panva/hkdf/dist/web/index.js'),
   },
   runtimeConfig: {
     authJs: {

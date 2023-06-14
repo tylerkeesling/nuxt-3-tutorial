@@ -1,8 +1,8 @@
 <template>
   <div class="flex gap-4">
     <template v-if="!isAuthenticated">
-      <button @click="loginWithRedirect" class="btn">Login</button>
-      <button @click="signUp" class="btn">Sign Up</button>
+      <button @click="login" class="btn">Login</button>
+      <button @click="logout" class="btn">Sign Up</button>
     </template>
     <template v-else>
       <button
@@ -12,8 +12,8 @@
         type="button"
       >
         <span class="sr-only">Open user menu</span>
-        <img class="w-8 h-8 mr-2 rounded-full" :src="user.picture" alt="user photo" />
-        {{ user.name }}
+        <img class="w-8 h-8 mr-2 rounded-full" :src="session.user.image" alt="user photo" />
+        {{ session.user.name }}
         <svg
           class="w-4 h-4 mx-1.5"
           aria-hidden="true"
@@ -35,7 +35,7 @@
         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
       >
         <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-          <div class="font-medium truncate">{{ user.email }}</div>
+          <div class="font-medium truncate">{{ session.user.email }}</div>
         </div>
         <ul
           class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -64,12 +64,17 @@
 </template>
 
 <script setup>
-import { useAuth0 } from '@auth0/auth0-vue';
 import { onMounted } from 'vue';
 import { initDropdowns } from 'flowbite';
 
-const { isAuthenticated, loginWithRedirect, logout, user, isLoading } = useAuth0();
-const signUp = () => loginWithRedirect({ authorizationParams: { screen_hint: 'signup' } });
+const { status, signIn, signOut, session } = useAuth();
+
+const isAuthenticated = computed(() => {
+  return status.value == 'authenticated';
+});
+
+const login = async () => await signIn('auth0');
+const logout = async () => await signOut();
 
 onMounted(() => {
   initDropdowns();

@@ -1,6 +1,8 @@
 <template>
   <div>
     <h2>Home</h2>
+    <div>{{ status }}</div>
+    <div>{{ session?.user }}</div>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. In perspiciatis omnis consequatur
       quod necessitatibus autem repellat aperiam quia atque fugit praesentium earum rerum minus,
@@ -20,12 +22,16 @@
   </div>
 </template>
 
+<script setup>
+const { status, session } = useAuth();
+</script>
+
 <style scoped>
-  h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
-  }
-  p {
-    margin: 20px 0;
-  }
+h2 {
+  margin-bottom: 20px;
+  font-size: 36px;
+}
+p {
+  margin: 20px 0;
+}
 </style>

@@ -73,7 +73,7 @@ const isAuthenticated = computed(() => {
   return status.value == 'authenticated';
 });
 
-const login = async () => await signIn('auth0');
+const login = () => signIn('auth0');
 const logout = async () => await signOut();
 
 onMounted(() => {

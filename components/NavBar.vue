@@ -7,9 +7,9 @@
         <NuxtLink to="/products">Products</NuxtLink>
       </div>
       <div class="flex gap-4">
-        <ClientOnly placeholder="Loading...">
-          <NavDropdown />
-        </ClientOnly>
+        <!-- <ClientOnly placeholder="Loading..."> -->
+        <NavDropdown />
+        <!-- </ClientOnly> -->
       </div>
     </nav>
   </header>

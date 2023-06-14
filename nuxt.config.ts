@@ -3,11 +3,11 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   telemetry: false,
   devtools: { enabled: true },
-  routeRules: {
-    '/': { ssr: true },
-    '/profile': { ssr: false },
-    '/products': { ssr: true },
-  },
+  // routeRules: {
+  //   '/': { ssr: true },
+  //   '/profile': { ssr: false },
+  //   '/products': { ssr: true },
+  // },
   app: {
     head: {
       title: 'Nuxt Auth0',

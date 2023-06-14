@@ -18,7 +18,7 @@ export const authOptions: AuthConfig = {
       issuer: runtimeConfig.auth.issuer,
       audience: runtimeConfig.auth.audience,
       wellKnown: `${runtimeConfig.auth.issuer}/.well-known/openid-configuration`,
-      checks: ['code', 'state'],
+      checks: ['state', 'nonce'],
       // authorization: { params: { scope: 'openid email profile ' } },
     }),
   ],
